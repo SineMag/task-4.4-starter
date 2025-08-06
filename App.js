@@ -1,13 +1,34 @@
 // All your DOM manipulation must happen here.
 // You will create and inject all elements into <main id="root"> using JavaScript only.
 
+//fetching the html, body to link css stylesheet
+
+const head = document.getElementsByTagName('head')[0];  
+  
+        // Create new link Element 
+        const link = document.createElement('link'); 
+  
+        // set the attributes for link element  
+        link.rel = 'stylesheet';  
+      
+        link.type = 'text/css'; 
+      
+        link.href = 'styles.css';  
+  
+        // Append link element to HTML head 
+        head.appendChild(link);
 // Get the root element
 // This is where we will append all our elements
 const root = document.getElementById('root');
 
+
+
 // root css styles
 root.style.display = 'flex';
-root.style.fontFamily = 'Arial, sans-serif';
+root.style.justifyContent = 'space-between';
+root.style.alignItems = 'center';
+root.style.fontFamily = 'Georgia, serif';
+root.style.flexDirection = 'column';
 root.style.textAlign = 'center';
 root.style.justifyContent = 'center';
 root.style.alignItems = 'center';
@@ -43,7 +64,7 @@ input.style.borderRadius = '5px';
 input.style.border = '1px solid #ccc';
 root.appendChild(input);
 
-// Add Button
+// Adding Button
 const addButton = document.createElement('button');
 addButton.textContent = 'Add ';
 addButton.style.marginLeft = '10px';
@@ -61,10 +82,11 @@ root.appendChild(addButton);
 const taskList = document.createElement('ul');
 taskList.style.listStyle = 'none';
 taskList.style.padding = '0';
+taskList.style.backgroundColor = '#B681C0';
 taskList.style.marginTop = '20px';
 taskList.style.textAlign = 'left';
 taskList.style.maxWidth = '400px';
-taskList.style.marginInline = 'auto';
+taskList.style.marginInline = 'center';
 root.appendChild(taskList);
 
 // for the tasks to update the counter
