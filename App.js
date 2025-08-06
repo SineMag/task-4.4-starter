@@ -1,4 +1,8 @@
+// All your DOM manipulation must happen here.
+// You will create and inject all elements into <main id="root"> using JavaScript only.
+
 // Get the root element
+// This is where we will append all our elements
 const root = document.getElementById('root');
 
 // root css styles
@@ -19,6 +23,7 @@ root.style.borderRadius = '10px';
 root.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
 root.style.maxWidth = '600px';
 root.style.margin = 'auto';
+root.style.backdropFilter = 'blur(10px)';
 
 
 // heading for the task tracker
@@ -48,6 +53,7 @@ addButton.style.backgroundColor = '#FB6D6D';
 addButton.style.color = 'white';
 addButton.style.border = 'none';
 addButton.style.marginTop = '5px';
+addButton.style.cursor = 'pointer';
 
 root.appendChild(addButton);
 
@@ -86,7 +92,7 @@ function addTask() {
   li.style.alignItems = 'center';
   li.style.justifyContent = 'space-between';
   li.style.marginBottom = '10px';
-  li.style.backgroundColor = '#f4f4f4';
+li.style.margin = '10px 0';
   li.style.padding = '10px';
   li.style.borderRadius = '5px';
 
@@ -98,6 +104,7 @@ function addTask() {
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.style.marginRight = '10px';
+checkbox.style.cursor = 'pointer';
 
   const span = document.createElement('span');
   span.textContent = taskText;
@@ -113,13 +120,17 @@ function addTask() {
 
   // Delete button
   const deleteBtn = document.createElement('button');
+ 
   deleteBtn.textContent = 'Delete';
   deleteBtn.style.backgroundColor = '#dc3545';
   deleteBtn.style.color = 'white';
   deleteBtn.style.border = 'none';
   deleteBtn.style.borderRadius = '5px';
-  deleteBtn.style.padding = '5px 10px';
+//   deleteBtn.style.padding = '15px 20px';
   deleteBtn.style.cursor = 'pointer';
+  deleteBtn.style.marginLeft = '280px';
+  deleteBtn.style.display = 'flex';
+  deleteBtn.style.alignItems = 'end';
 
   deleteBtn.addEventListener('click', () => {
     taskList.removeChild(li);
